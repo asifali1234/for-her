@@ -62,7 +62,7 @@ function createHeartExplosion() {
     const explosionContainer = document.getElementById('heart-explosion');
     explosionContainer.style.display = 'block';
 
-    for (let i = 0; i < 1000; i++) { // Increased to 150 hearts
+    for (let i = 0; i < 200; i++) { // Increased to 150 hearts
         setTimeout(() => {
             createExplodingHeart(explosionContainer);
         }, 20); // Reduced delay for faster creation
@@ -155,5 +155,5 @@ heart.style.height = `${size}px`;
 
     setTimeout(() => {
         heart.remove();
-    }, 2000);
+    }, 6000);
 }
