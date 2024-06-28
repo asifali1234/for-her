@@ -62,7 +62,7 @@ function createHeartExplosion() {
     const explosionContainer = document.getElementById('heart-explosion');
     explosionContainer.style.display = 'block';
 
-    for (let i = 0; i < 150; i++) { // Increased to 150 hearts
+    for (let i = 0; i < 100; i++) { // Increased to 150 hearts
         setTimeout(() => {
             createExplodingHeart(explosionContainer);
         }, 20); // Reduced delay for faster creation
@@ -107,7 +107,7 @@ function createExplodingHeart(container) {
 
     setTimeout(() => {
         heart.remove();
-    }, 4000);
+    }, 2000);
 }
 
 
@@ -117,8 +117,8 @@ function moveButton() {
     const currentX = parseFloat(noButton.style.left) || 0;
     const currentY = parseFloat(noButton.style.top) || 0;
     // Calculate new position
-    const maxX = window.innerWidth - noButton.offsetWidth - 85;
-    const maxY = window.innerHeight - noButton.offsetHeight - 48;
+    const maxX = window.outerWidth - noButton.offsetWidth - 85;
+    const maxY = window.outerHeight - noButton.offsetHeight - 48;
     let newX = Math.random() * maxX;
     let newY = Math.random() * maxY;
     // Ensure the new position is different from the current one
