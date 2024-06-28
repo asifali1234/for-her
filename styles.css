@@ -42,6 +42,19 @@ body {
     /* margin-bottom: 20px; */
 }
 
+.header_text_2 {
+    /* font-family: 'Pacifico', cursive; */
+
+    font-family: "Playwrite IT Moderna", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    /* margin-bottom: 20px; */
+}
+
 .buttons {
     display: flex;
     flex-direction: row;
