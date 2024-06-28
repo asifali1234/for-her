@@ -62,7 +62,7 @@ function createHeartExplosion() {
     const explosionContainer = document.getElementById('heart-explosion');
     explosionContainer.style.display = 'block';
 
-    for (let i = 0; i < 200; i++) { // Increased to 150 hearts
+    for (let i = 0; i < 150; i++) { // Increased to 150 hearts
         setTimeout(() => {
             createExplodingHeart(explosionContainer);
         }, 20); // Reduced delay for faster creation
@@ -74,14 +74,16 @@ function createExplodingHeart(container) {
     heart.classList.add('exploding-heart');
 
     // Set initial position to center of screen
-    // const startX = window.innerWidth / 2;
+    // const startX = window.outerWidth/2;
     // const startY = window.innerHeight / 2;
-    const startX = Math.random() * window.innerWidth;
-    const startY = Math.random() * window.innerHeight;
+    // console.log(window.outerWidth);
+    // console.log(window.innerWidth);
+    const startX = Math.random() * window.outerWidth;
+    const startY = Math.random() * window.outerHeight;
 
     // Random end position
-    const endX = Math.random() * window.innerWidth;
-    const endY = Math.random() * window.innerHeight;
+    const endX = Math.random() * window.outerWidth;
+    const endY = Math.random() * window.outerHeight;
 
     // Set initial position
     heart.style.left = `${startX}px`;
@@ -142,10 +144,10 @@ heart.style.width = `${size}px`;
 heart.style.height = `${size}px`;
     
     // Random horizontal position
-    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.left = Math.random() * 90 + 'vw';
     
     // Random vertical position
-    heart.style.top = Math.random() * 100 + 'vh';
+    heart.style.top = Math.random() * 90 + 'vh';
     
     // Random animation duration
     heart.style.animationDuration = (Math.random() * 2 + 4) + 's';
@@ -155,5 +157,5 @@ heart.style.height = `${size}px`;
 
     setTimeout(() => {
         heart.remove();
-    }, 6000);
+    }, 2000);
 }
