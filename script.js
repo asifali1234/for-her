@@ -74,16 +74,16 @@ function createExplodingHeart(container) {
     heart.classList.add('exploding-heart');
 
     // Set initial position to center of screen
-    // const startX = window.outerWidth/2;
+    // const startX = window.innerWidth/2;
     // const startY = window.innerHeight / 2;
-    // console.log(window.outerWidth);
-    // console.log(window.innerWidth);
-    const startX = Math.random() * window.outerWidth;
-    const startY = Math.random() * window.outerHeight;
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+    const startX = Math.random() * window.innerWidth;
+    const startY = Math.random() * window.innerHeight;
 
     // Random end position
-    const endX = Math.random() * window.outerWidth;
-    const endY = Math.random() * window.outerHeight;
+    const endX = Math.random() * window.innerWidth;
+    const endY = Math.random() * window.innerHeight;
 
     // Set initial position
     heart.style.left = `${startX}px`;
@@ -117,8 +117,8 @@ function moveButton() {
     const currentX = parseFloat(noButton.style.left) || 0;
     const currentY = parseFloat(noButton.style.top) || 0;
     // Calculate new position
-    const maxX = window.outerWidth - noButton.offsetWidth - 85;
-    const maxY = window.outerHeight - noButton.offsetHeight - 48;
+    const maxX = window.innerWidth - noButton.offsetWidth - 85;
+    const maxY = window.innerHeight - noButton.offsetHeight - 48;
     let newX = Math.random() * maxX;
     let newY = Math.random() * maxY;
     // Ensure the new position is different from the current one
@@ -143,11 +143,9 @@ function createHeart() {
 heart.style.width = `${size}px`;
 heart.style.height = `${size}px`;
     
-    // Random horizontal position
-    heart.style.left = Math.random() * 90 + 'vw';
-    
-    // Random vertical position
-    heart.style.top = Math.random() * 90 + 'vh';
+
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.top = Math.random() * window.innerHeight + 'px';
     
     // Random animation duration
     heart.style.animationDuration = (Math.random() * 2 + 4) + 's';
