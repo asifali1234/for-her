@@ -1,21 +1,32 @@
 
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Ensure body takes at least full viewport height */
-    min-width: 100vh;
+    display: ruby-text;
+    /* justify-content: center;
+    align-items: center; */
+    height: 100%; /* Ensure body takes at least full viewport height */
+    width: 100%;
     margin: 0; /* Remove default body margin */
     background-color: rgb(216, 105, 158);
+  }
+
+
+  .container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%; 
+    height: 100%;
+    /* padding: 20px;  */
   }
   
   .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%; 
-    padding: 20px; 
+     width: 100%; 
+     height: 100%;
+    /* padding: 20px;  */
   }
 #noButton {
     position: absolute;
@@ -101,9 +112,9 @@ body {
 }
 
 @keyframes float {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(180deg); }
-    100% { transform: translateY(0) rotate(360deg); }
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    50% { transform: translateY(-20px) rotate(180deg); opacity: 0.4; }
+    100% { transform: translateY(0) rotate(360deg); opacity: 0;}
 }
 
 .heart-explosion {
@@ -113,6 +124,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    overflow: hidden;
     z-index: 9999;
     display: none;
 }
@@ -135,6 +147,8 @@ body {
     border-radius: 24px;
     /* background-color: #f9f9f9; */
     text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
 
   }
 

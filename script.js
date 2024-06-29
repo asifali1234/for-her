@@ -55,13 +55,14 @@ function nextPage() {
             </div>
         </div>
         `
-    }, 1500); // Redirect after 4 seconds to allow for a longer explosion
+    }, 1200); // Redirect after 4 seconds to allow for a longer explosion
 }
 
 function createHeartExplosion() {
     const explosionContainer = document.getElementById('heart-explosion');
     explosionContainer.style.display = 'block';
-
+    console.log(explosionContainer.width);
+    console.log(explosionContainer.height);
     for (let i = 0; i < 100; i++) { // Increased to 150 hearts
         setTimeout(() => {
             createExplodingHeart(explosionContainer);
@@ -76,38 +77,63 @@ function createExplodingHeart(container) {
     // Set initial position to center of screen
     // const startX = window.innerWidth/2;
     // const startY = window.innerHeight / 2;
-    console.log(window.innerWidth);
-    console.log(window.innerHeight);
-    const startX = Math.random() * window.innerWidth;
-    const startY = Math.random() * window.innerHeight;
+    console.log(window.outerHeight);
+    console.log(window.outerWidth);
+    console.log(document.documentElement.clientWidth);
+    console.log(document.documentElement.clientHeight);
+    // const startX = Math.random() * window.innerWidth;
+    // const startY = Math.random() * window.innerHeight;
+    // const startX = Math.random() * window.innerWidth;
+    // const startY = Math.random() * window.innerHeight;
 
-    // Random end position
-    const endX = Math.random() * window.innerWidth;
-    const endY = Math.random() * window.innerHeight;
+    // // Random end position
+    // const endX = Math.random() * window.innerWidth;
+    // const endY = Math.random() * window.innerHeight;
 
-    // Set initial position
-    heart.style.left = `${startX}px`;
-    heart.style.top = `${startY}px`;
-
-    // Random size (much larger now)
     const size = Math.random() * 150 + 100; // Between 100px and 200px
     heart.style.width = `${size}px`;
     heart.style.height = `${size}px`;
+
+    const startX = Math.random() * (document.documentElement.clientWidth+size);
+    const startY = Math.random() * (document.documentElement.clientHeight+size);
+    console.log(startX + " " + startY);
+
+    // Random end position
+    const endX = Math.random() * (document.documentElement.clientWidth+size);
+    const endY = Math.random() * (document.documentElement.clientHeight+size);
+
+    
+
+    const startXNew = startX - size/2;
+    const startYNew = startY - size/2;
+
+    const endXNew = endX - size/2;
+    const endYNew = endY - size/2;
+
+    // Set initial position
+    heart.style.left = `${startXNew}px`;
+    heart.style.top = `${startYNew}px`;
+
+    // heart.style.left = `-100px`;
+    // heart.style.top = `-100px`;
+
+    // Random size (much larger now)
+    
 
     container.appendChild(heart);
 
     // Animate
     heart.animate([
         { transform: 'scale(0) translate(0, 0)', opacity: 1 },
-        { transform: `scale(1) translate(${endX - startX}px, ${endY - startY}px)`, opacity: 0 }
+        { transform: `scale(1) translate(${endXNew - startXNew}px, ${endYNew - startYNew}px)`, opacity: 0 }
     ], {
-        duration: 4000,
+        duration: 3000,
         easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)'
     });
 
     setTimeout(() => {
         heart.remove();
-    }, 2000);
+    }, 3000);
 }
 
 
@@ -139,7 +165,7 @@ function createHeart() {
     heart.src = 'heart.png';  // Replace with your image path
     heart.alt = 'Floating heart';
 
-    const size = Math.random() * 60 + 20; // Random size between 40px and 60px
+    const size = Math.random() * 80 + 20; // Random size between 40px and 60px
 heart.style.width = `${size}px`;
 heart.style.height = `${size}px`;
     
@@ -148,12 +174,12 @@ heart.style.height = `${size}px`;
     heart.style.top = Math.random() * window.innerHeight + 'px';
     
     // Random animation duration
-    heart.style.animationDuration = (Math.random() * 2 + 4) + 's';
+    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
     heart.style.opacity = '0.8';
     
     document.body.appendChild(heart);
 
     setTimeout(() => {
         heart.remove();
-    }, 2000);
+    }, 5000);
 }
